@@ -63,3 +63,9 @@ The features of the code:
 - Handles exceptions using a try-except block.
 - Prints out information about processed files and output files.
 
+
+### How it started:
+
+I asked ChatGPT to make it.  Most of the script was complete and running within a few minutes. A few hours more went into adjusting, debuggin, and optimizing it ...
+
+![ChatGPT prompt and response](ChatGPT1.jpg)
