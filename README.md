@@ -1,6 +1,9 @@
 # AutoSIG
 Automatically sign images with a png graphic watermark
 
+
+## Install and run
+
 Here are the steps to install and run the script:
 
 1. Install Python: First, you need to install Python on your computer. You can download and install Python from the official website: https://www.python.org/downloads/
@@ -22,9 +25,9 @@ Here are the steps to install and run the script:
 
 6. Check the output: The script will save the processed images with the watermark in a folder named `_output`. Check this folder to see the results.
 
-===
 
-Features:
+### Features:
+
 - Adds a PNG watermark to images in a specified folder
 - Watermark size, transparency, x and y adjustments can be adjusted by changing parameters
 - Input and output folders can be adjusted by changing parameters
@@ -32,7 +35,7 @@ Features:
 - Supports JPEG and PNG image formats
 - Saves the adjusted image with the "GAIO_" prefix and series title and number
 
-===
+
 
 The steps of the code:
 
