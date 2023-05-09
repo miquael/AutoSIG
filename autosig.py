@@ -11,16 +11,16 @@ from PIL import Image, ImageDraw, ImageFont
 import os
 
 # Parameters
-series_title = "Gamma-Ray-Girl"
+series_title = "Gamma-Ray-Girl- Renaissance"
 watermark_path = '_watermarks/GAIO.AI-text-watermark.png'
-watermark_size = (60, 17)
-watermark_transparency = 0.2
+watermark_size = (106, 30) # 106, 30 // 60, 17
+watermark_transparency = 0.35
 x_adjustment = -5
 y_adjustment = -5
-max_width = 600
+max_width = 800
 max_height = None
 
-# Add watermark to image
+# Add watermark to image and add size to filename
 def add_watermark(image_path, watermark_path, size, transparency, x_adjustment, y_adjustment, series_title, file_number):
     try:
         # Open the image and watermark
@@ -37,17 +37,9 @@ def add_watermark(image_path, watermark_path, size, transparency, x_adjustment, 
         image = image.resize(size)
 
         # Resize the watermark to the desired size
-        #watermark_width = int(watermark_size[0] / x_ratio)
-        #watermark_height = int(watermark_size[1] / y_ratio)
-        #watermark_size_resized = (watermark_width, watermark_height)
-        #watermark = watermark.resize(watermark_size_resized)
-
-        # Resize the watermark to the desired size
         watermark = watermark.resize(watermark_size)
 
         # Add transparency to the watermark
-        # print(f"Watermark mode: {watermark.mode}")
-        # watermark = watermark.convert('RGBA')
         alpha = int(255 * transparency)
         watermark.putalpha(alpha)
 
@@ -61,9 +53,10 @@ def add_watermark(image_path, watermark_path, size, transparency, x_adjustment, 
         if image.mode != "RGB":
             image = image.convert('RGB')
 
-        # Save the adjusted image with the "GAIO_" prefix and series title and number
+        # Get the output filename with size
         file_number_str = str(file_number).zfill(3) # pad with leading zeros
-        output_filename = f"GAIO--{series_title}-{file_number_str}{os.path.splitext(image_path)[1].lower()}"
+        output_size = f"-{size[0]}x{size[1]}"
+        output_filename = f"GAIO--{series_title}-{file_number_str}-{output_size}{os.path.splitext(image_path)[1].lower()}"
         output_path = os.path.join(output_folder, output_filename)
 
         # Save the output image
@@ -72,6 +65,7 @@ def add_watermark(image_path, watermark_path, size, transparency, x_adjustment, 
         print(f"Output file: {output_path}")
     except Exception as e:
         print(f"Error processing file: {image_path}, error: {e}")
+
 
 # Input and output folders
 input_folder = '_input'

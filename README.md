@@ -35,23 +35,27 @@ Here are the steps to install and run the script:
 - Input and output folders can be adjusted by changing parameters
 - Watermark image can be changed by updating the watermark path parameter
 - Supports JPEG and PNG image formats
-- Saves the adjusted image with the "GAIO_" prefix and series title and number
+- Saves the adjusted image with the "GAIO_" prefix and series title, number, and size.
 - Adjusts the image size based on value of max_width and max_height (which ever is less), and maintains image aspect ratio.
 
 
 Here are the steps and features of the code:
 
-1. Imports necessary modules: PIL, Image, ImageDraw, ImageFont, and os.
-2. Sets various parameters for the watermark, including its path, size, transparency, and position.
-3. Defines a function to add a watermark to an image. This function takes the image path, watermark path, size, transparency, position adjustments, series title, and file number as inputs.
-4. The function opens both the image and watermark, resizes them as necessary, and adds transparency to the watermark.
-5. The watermark is then blended with the image and saved to the output folder with a filename that includes the series title and file number.
-6. Defines a function to resize an image proportionally based on either the maximum width or maximum height.
-7. Lists all the input files in the input folder and sorts them alphabetically.
-8. Loops through each input file, resizes it based on the maximum width and maximum height, and adds a watermark to it using the previously defined function.
-9. Saves the watermarked images to the output folder.
+1. The script imports the necessary modules, including PIL, Image, ImageDraw, ImageFont, and os.
 
-Overall, the code reads image files from an input folder, resizes them, adds a watermark to them, and saves them to an output folder.
+2. A number of parameters are set at the beginning of the script, including series_title, watermark_path, watermark_size, watermark_transparency, x_adjustment, y_adjustment, max_width, and max_height. These parameters control various aspects of the watermark and resizing process.
+
+3. The script defines a function, add_watermark(), that adds a watermark to an image and appends the size of the image to the output filename. The function opens the input image and watermark, resizes them as necessary, adds transparency to the watermark, positions the watermark on the image, and saves the output image with a new filename that includes the size.
+
+4. The script defines another function, resize_image_proportionally(), that resizes an image proportionally based on the max_width and max_height parameters.
+
+5. The script gets a list of input files in the input_folder, sorts them alphabetically, and loops through them one by one.
+
+6. For each input file, the script resizes the image based on the max_width and max_height parameters, adds the watermark to the image using the add_watermark() function, and increments the file number counter.
+
+7. The output images are saved in the output_folder with a new filename that includes the original filename, the series title, the file number, and the size of the output image.
+
+Overall, the code reads image files from an input folder, resizes them, adds a watermark to them, and saves them with a new name to an output folder.
 
 
 ### How it started:
