@@ -55,7 +55,7 @@ Here are the steps and features of the code:
 
 7. The output images are saved in the output_folder with a new filename that includes the original filename, the series title, the file number, and the size of the output image.
 
-Overall, the code reads image files from an input folder, resizes them, adds a watermark to them, and saves them with a new name to an output folder.
+Overall, the code reads image files from an input folder, resizes them, adds a watermark to them, and saves new versions with a new name to an output folder.
 
 
 ### How it started:
